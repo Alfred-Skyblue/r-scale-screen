@@ -2,7 +2,7 @@
 
 If you are using Vue, move to [v-scale-screen](https://github.com/Alfred-Skyblue/v-scale-screen)
 
-English | [简体中文](https://github.com/Alfred-Skyblue/r-scale-screen/README.zh_CN.md)
+English | [简体中文](./README.zh_CN.md)
 
 Large-screen adaptive container component, which can be used for large-screen project development, realizes screen adaptation, and can be adaptive according to width, height, and width and height ratios, and full-screen adaptation
 
