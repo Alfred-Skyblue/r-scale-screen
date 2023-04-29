@@ -1,0 +1,46 @@
+{
+  "name": "r-scale-screen",
+  "version": "0.0.2",
+  "description": "react 大屏自适应组件",
+  "main": "dist/r-scale-screen.umd.cjs",
+  "module": "dist/r-scale-screen.js",
+  "type": "module",
+  "types": "dist/types/index.d.ts",
+  "files": [
+    "dist",
+    "README.zh_CN.md"
+  ],
+  "keywords": [
+    "react",
+    "react大屏自适应组件",
+    "react大屏组件",
+    "大屏自适应",
+    "大屏组件"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && tsc",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.57.1",
+    "@typescript-eslint/parser": "^5.57.1",
+    "@vitejs/plugin-react": "^4.0.0",
+    "eslint": "^8.38.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.3.4",
+    "prettier": "^2.8.8",
+    "typescript": "^5.0.2",
+    "vite": "^4.3.2"
+  }
+}
