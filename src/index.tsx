@@ -49,6 +49,7 @@ interface Options {
   delay?: number
   boxStyle?: CSSProperties
   wrapperStyle?: CSSProperties
+  isBoxCurrent?: boolean
 }
 
 export default function RScaleScreen(props: Options) {
@@ -57,9 +58,11 @@ export default function RScaleScreen(props: Options) {
     height,
     autoScale = true,
     bodyOverflowHidden = true,
-    delay = 500
+    delay = 500,
+    isBoxCurrent = false,
   } = props
   let bodyOverflow: string
+  const getBox = () => document.querySelector('.react-screen-box') ?? document.body
   const elRef = useRef<HTMLDivElement>(null)
   const [size, setSize] = useState({
     width,
@@ -122,8 +125,8 @@ export default function RScaleScreen(props: Options) {
     if (!autoScale) return
     const domWidth = elRef.current!.clientWidth
     const domHeight = elRef.current!.clientHeight
-    const currentWidth = document.body.clientWidth
-    const currentHeight = document.body.clientHeight
+    const currentWidth = isBoxCurrent ? getBox().clientWidth : document.body.clientWidth
+    const currentHeight = isBoxCurrent ? getBox().clientHeight : document.body.clientHeight
     elRef.current!.style.transform = `scale(${scale},${scale})`
     let mx = Math.max((currentWidth - domWidth * scale) / 2, 0)
     let my = Math.max((currentHeight - domHeight * scale) / 2, 0)
@@ -135,8 +138,8 @@ export default function RScaleScreen(props: Options) {
   }
   function updateScale() {
     // 获取真实视口尺寸
-    const currentWidth = document.body.clientWidth
-    const currentHeight = document.body.clientHeight
+    const currentWidth = isBoxCurrent ? getBox().clientWidth : document.body.clientWidth
+    const currentHeight = isBoxCurrent ? getBox().clientHeight : document.body.clientHeight
     // 获取大屏最终的宽高
     const realWidth = size.width || size.originalWidth
     const realHeight = size.height || size.originalHeight
